@@ -62,6 +62,10 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                <form method="POST" action="{{ route('home.login', $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete Student"><i class="fa fa-trash-o" aria-hidden="true"></i> Logout</button>
+                                </form>
                                 </tbody>
                             </table>
                         </div>
