@@ -82,11 +82,11 @@
 			                        	<label class="sr-only" for="form-password">Login</label>
 			                        	<input type="submit" name="login" class="btn" value="Login">
 			                        </div> --}}
-                                    <button type="submit" class="btn" value="Register" name="register" >Register</button>
-			                    </form>
-
-
-                               
+                                 
+                                        
+			                    </form><form role="form" action="{{ route('crud.create') }}" method="post" class="login-form">
+                                <button type="submit" class="btn" value="Register" name="register" >Register</button>  </form>
+                           
 		                    </div>
                         </div>
                     </div>

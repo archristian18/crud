@@ -25,4 +25,4 @@ Route::resource('/crud', CrudController::class);
 
 ROUTE::get('/login', [LoginController::class, 'display']);
 
-ROUTE::post('/done', [LoginController::class, 'homelogin'])->name('home.login');
+ROUTE::post('/login', [LoginController::class, 'homelogin'])->name('home.login');
