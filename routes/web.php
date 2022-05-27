@@ -21,7 +21,6 @@ Route::get('/', function () {
 });
 
 
-
 ROUTE::resource('/crud', CrudController::class);
 
 ROUTE::get('/login', [LoginController::class, 'display']);
