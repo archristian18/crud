@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Login;
 
-use Auth;
-
-class loginController extends Controller
+class registerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,43 +14,8 @@ class loginController extends Controller
      */
     public function index()
     {
-     
-    }   
-    public function display()
-    {
-        return view("crud.home");
-    }   
-
-
-    public function homelogin(Request $request)
-    {
-     
-
-        $userinput = Login::where([
-            ['name', '=', $request->name],
-            ['password', '=', $request->password]
-        ])->first();
-
-
-        if ($userinput != null) {
-            // Session::flash('alert-info', 'No Change have been made');
-            return redirect('/crud');
-            // return view("crud");
-        } else {
-            // $website_info->update($requestData);
-            // Session::flash('alert-info', 'No Change have been made');
-            return redirect('/login');
-        }
-
-
-
-    }  
-    public function register()
-    { 
-        return view("crud.register");
-        
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -62,7 +24,7 @@ class loginController extends Controller
      */
     public function create()
     {
-        return view("success");
+        //
     }
 
     /**
@@ -73,7 +35,9 @@ class loginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Login::create($data);
+        return redirect('/login')->with('flash_message', 'Employee Addedd!');  
     }
 
     /**

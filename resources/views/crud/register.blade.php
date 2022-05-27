@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap Login Form Template</title>
+        <title>Register</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -40,9 +40,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Bootstrap</strong> Login Form</h1>
+                         <h1><strong>Bootstrap</strong>REGISTER</h1>
                             <div class="description">
-
+                            	<p>
+	                            	This is a free responsive login form made with Bootstrap. 
+	                            	Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
+                            	</p>
                             </div>
                         </div>
                     </div>
@@ -59,7 +62,7 @@
                             </div>
                             <div class="form-bottom">
                                
-			                    <form role="form" action="{{ route('home.login') }}" method="post" class="login-form">
+			                    <form role="form" action="{{ route('register.create') }}" method="post" class="login-form">
                                     {!! csrf_field() !!}
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
@@ -71,22 +74,21 @@
 			                        </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn" value="Login" name="login" >Sign in!</button>
+                                        <button type="submit" class="btn" value="submit" name="submit" >Submit</button>
 			                        </div>
 
 
                                     {{-- <div class="form-group">
-			                        	<label class="sr-only" for="form-password">Login</label>
-			                        	<input type="submit" name="login" class="btn" value="Login">
+                                        <button type="submit" class="btn" value="Login" name="login" >Cancel</button>
 			                        </div> --}}
                                                                       
 
 
 
 			                    </form>
-                                <a href="{{ route('home.register') }}" class="btn btn-success btn-sm" title="Add New Student">Register</a>
-                                {{-- <form role="form" action="{{ route('home.register') }}" method="post" class="login-form">
-                                <button type="submit" class="btn" value="Register" name="register" >Register</button>  </form> --}}
+                                
+                                <a href="{{ route('home.login') }}" class="btn btn-danger btn-sm" title="Add New Student">Cancel</a>
+                        
                            
 		                    </div>
                         </div>
