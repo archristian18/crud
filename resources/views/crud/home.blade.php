@@ -72,18 +72,27 @@
 			                        	<label class="sr-only" for="form-password">Password</label>
 			                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="password">
 			                        </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn" value="Login" name="login" >Sign in!</button>
+			                        </div>
+
+
                                     {{-- <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Login</label>
 			                        	<input type="submit" name="login" class="btn" value="Login">
 			                        </div> --}}
-			                        <button type="submit" class="btn" value="Login" name="login" >Sign in!</button>
+                                    <button type="submit" class="btn" value="Register" name="register" >Register</button>
 			                    </form>
+
+
+                               
 		                    </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
-                        	<h3>...or login with:</h3>
+
                         	<div class="social-login-buttons">
 	                        	<a class="btn btn-link-1 btn-link-1-facebook" href="#">
 	                        		<i class="fa fa-facebook"></i> Facebook
