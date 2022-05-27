@@ -84,6 +84,9 @@
 			                        </div> --}}
                                  
                                         
+
+
+                                    
 			                    </form><form role="form" action="{{ route('crud.create') }}" method="post" class="login-form">
                                 <button type="submit" class="btn" value="Register" name="register" >Register</button>  </form>
                            
