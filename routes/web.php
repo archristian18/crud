@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 
 Route::resource('/crud', CrudController::class);
+Route::group(['middleware' => ['guest']], function() {
 
 ROUTE::get('/login', [LoginController::class, 'display']);
 
@@ -32,3 +33,5 @@ ROUTE::get('/register', [LoginController::class, 'register'])->name('home.regist
 
 
 ROUTE::post('/register/create', [RegisterController::class, 'store'])->name('register.create');
+
+});

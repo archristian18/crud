@@ -13,6 +13,7 @@ class crudController extends Controller
         
         // index view (index.blade.php)
         $students = crud::all();
+        // $students = Crud::where('name', '=', 'Archristian')->get();;
         // Student::all(); get the data from the model, (Student is the name of the model)
         return view('crud.index')->with('crud', $students);
         // view('students.index'),  directory where to go,
@@ -41,11 +42,13 @@ class crudController extends Controller
         ]);
 
         $requestData = $request->all();
+
         $fileName = time().$request->file('pic')->getClientOriginalName();
         $path = $request->file('pic')->storeAs('`image`', $fileName, 'public');
         $requestData["picture"] = '/storage/'.$path;
+
         crud::create($requestData);
-        return redirect('crud')->with('flash_message', 'Employee Addedd!');  
+        return redirect('crud');  
 
     }
     
@@ -67,12 +70,12 @@ class crudController extends Controller
   
     public function update(Request $request, $id)
     {
-        // POST, (IF JAVASCRIPT PUT or PATCH)
+        // POST, (IF JAVASCRIPT PUT or PATCH)   
 
         $student = crud::find($id);
         $input = $request->all();
         $student->update($input);
-        return redirect('crud')->with('flash_message', 'student Updated!');  
+        return redirect('crud');  
     }
 
 
@@ -81,17 +84,14 @@ class crudController extends Controller
         // POST, (IF JAVASCRIPT PUT or PATCH)
 
 
-        return redirect('crud')->with('flash_message', 'Employee Addedd!');  
+        return redirect('crud');  
     }
 
 
-
-
-  
   
     public function destroy($id)
     {
         crud::destroy($id);
-        return redirect('crud')->with('flash_message', 'Student deleted!');  
+        return redirect('crud');  
     }
 }
