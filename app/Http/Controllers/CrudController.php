@@ -7,15 +7,23 @@ use Illuminate\Http\Request;
 
 class crudController extends Controller
 {
+
+    public function __contruct() 
+    {
+        $this->middleware('preventBackHistory');
+    }
+    
     public function index()
     {
     // GET
         
         // index view (index.blade.php)
+        
         $students = crud::all();
+        return view('crud.index')->with('crud', $students);
+
         // $students = Crud::where('name', '=', 'Archristian')->get();;
         // Student::all(); get the data from the model, (Student is the name of the model)
-        return view('crud.index')->with('crud', $students);
         // view('students.index'),  directory where to go,
         // ->with('students', $students);, 'students' name of the student variable in foreach, 
     }

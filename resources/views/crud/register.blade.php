@@ -64,17 +64,19 @@
                                
 			                    <form role="form" action="{{ route('register.create') }}" method="post" class="login-form">
                                     {!! csrf_field() !!}
+
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" name="name" placeholder="Username..." class="form-username form-control" id="name">
+			                        	<input type="text" name="name" class="form-username form-control" id="name" >
 			                        </div>
+
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="password">
+			                        	<input type="password" name="password" class="form-password form-control" id="password">
 			                        </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn" value="submit" name="submit" >Submit</button>
+                                        <button type="submit" class="btn" value="Submit" name="submit" >Submit</button>
 			                        </div>
 
 
@@ -82,9 +84,6 @@
                                         <button type="submit" class="btn" value="Login" name="login" >Cancel</button>
 			                        </div> --}}
                                                                       
-
-
-
 			                    </form>
                                 
                                 <a href="{{ route('home.login') }}" class="btn btn-danger btn-sm" title="Add New Student">Cancel</a>

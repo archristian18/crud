@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Login;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
+
 
 class registerController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -18,34 +22,31 @@ class registerController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function game(Request $request)
     {
-        // $data = $request->all();
-        // Login::create($data);
-        // return redirect('/login')->with('flash_message', 'Employee Addedd!');  
+        // $data = $request->all();  
+        // login::create($data);
 
+        login::create([
+            'name' => $request['name'],
+            'password' => Hash::make($request['password'])
+          ]);
+        return redirect('login');  
 
-        $user = Login::create($request->validated());
-        auth()->login($user);
+        // auth()->login($data);
+        // return redirect('/login')->with('success', "Account successfully registered."); 
 
-        return redirect('/login')->with('success', "Account successfully registered."); 
     }
 
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
 
    

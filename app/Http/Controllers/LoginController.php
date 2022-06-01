@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\Models\Login;
 
-use Auth;
+
 
 class loginController extends Controller
 {
+    public function username()
+    {
+    return 'username';
+    }
+
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,22 +38,34 @@ class loginController extends Controller
     public function homelogin(Request $request)
     {
      
-
+        $login = $request->login;
+     
+     
+        
         $userinput = Login::where([
             ['name', '=', $request->name],
             ['password', '=', $request->password]
+
         ])->first();
 
-
-        if ($userinput != null) {
-            // Session::flash('alert-info', 'No Change have been made');
+        if (isset($login)) {
             return redirect('/crud');
-            // return view("crud");
-        } else {
-            // $website_info->update($requestData);
-            // Session::flash('alert-info', 'No Change have been made');
+          }
+          else{
             return redirect('/login');
-        }
+          }
+
+
+
+        // if ($userinput != null) {
+        //     // Session::flash('alert-info', 'No Change have been made');
+        //     return redirect('/crud');
+        //     // return view("crud");
+        // } else {
+        //     // $website_info->update($requestData);
+        //     // Session::flash('alert-info', 'No Change have been made');
+        //     return redirect('/login');
+        // }
 
 
 
@@ -64,6 +86,7 @@ class loginController extends Controller
     {
         return view("success");
     }
+    
 
   
 }

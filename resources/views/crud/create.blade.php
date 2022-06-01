@@ -14,13 +14,13 @@
       {!! csrf_field() !!}
 
 
-
         <label>Name</label></br>
         <input type="text" name="name" id="name" class="form-control" value="{{old('name')}}"></br>
+
         @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
-     
+        
        
         <label>Address</label></br>
         <input type="text" name="address" id="address" class="form-control"  value="{{old('address')}}"></br>
@@ -39,9 +39,6 @@
         <input class="form-control" name="pic" type="file" id="photo"></br>
 
         <input type="submit" value="Save" class="btn btn-success"></br>
-
-
-
 
       </form>
   

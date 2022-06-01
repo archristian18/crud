@@ -66,6 +66,15 @@
                                     {{ csrf_field() }}
                                     <button type="submit" class="btn btn-danger btn-sm" title="Delete Student"><i class="fa fa-trash-o" aria-hidden="true"></i> Logout</button>
                                 </form>
+
+                                {{-- @auth
+                                {{auth()->user()->name}}
+                                <div class="text-end">
+                                  <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
+                                </div>
+                                @endauth --}}
+
+
                                 </tbody>
                             </table>
                         </div>
